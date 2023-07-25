@@ -1,5 +1,9 @@
 Projeto de monitoramento docker
 
+instanlando o docker 
+
+# curl -fsSL https://get.docker.com/ | sh
+
 docker compose pull
 docker compose up -d
 
