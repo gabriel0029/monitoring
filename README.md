@@ -65,7 +65,7 @@ A opção -f retorna o que é acrescentado de novo ao arquivo de log da aplicaç
 ```
 http://seu_ip:3000
 ```
-admin
+admin  
 suporte
 
 - Obs. Para coletar os logs dos containers em execução acrescente os lables a seus containers
