@@ -36,8 +36,9 @@ Caso use o docker compose faça o download dos arquivos, eles se encontram logo 
 ```
 - Visualizando os logs do serviço em execução.
 ```
-#docker container logs -f ID_Container     #Opção -f retorna o que é acrescentado de novo ao arquivo de log da aplicação.
+#docker container logs -f ID_Container ou nome_container 
 ```
+A opção -f retorna o que é acrescentado de novo ao arquivo de log da aplicação.
 
 - Trazendo detalhamento do container.
 ```
