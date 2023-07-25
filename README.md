@@ -9,7 +9,7 @@ admin
 suporte
 
 
-para coletar os logs dos container em execução acrescentel os lables
+para coletar os logs dos containers em execução acrescente os lables 
 
-logging: "promtail"
+logging: "promtail" e 
 logging_jobname: "containerlogs"
