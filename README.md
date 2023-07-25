@@ -90,7 +90,7 @@ logging_jobname: "containerlogs"
 ```
 ### Exemplo
 
-docker run
+Docker run
 
 ```
 docker run -d -p80:80 --name nginx --label logging=promtail --label logging_jobname=containerlogs nginx
@@ -98,7 +98,7 @@ docker run -d -p80:80 --name nginx --label logging=promtail --label logging_jobn
 Dentro .ymal na seção do container
 
 ```
-    labels:
-      logging: "promtail"
-      logging_jobname: "containerlogs"
+labels:
+  logging: "promtail"
+  logging_jobname: "containerlogs"
 ```
