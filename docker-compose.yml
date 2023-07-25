@@ -12,7 +12,7 @@ services:
 
   prometheus:
     container_name: prometheus
-    image: prom/prometheus:v2.36.2
+    image: prom/prometheus
     labels:
       logging: "promtail"
       logging_jobname: "containerlogs"
@@ -86,6 +86,7 @@ services:
 #      placement:
 #        constraints:
 #          - node.hostname == ${HOSTNAME}
+
   cadvisor:
     container_name: cadvisor
     image: gcr.io/cadvisor/cadvisor
@@ -107,7 +108,7 @@ services:
 
   grafana:
     container_name: grafana
-    image: grafana/grafana
+    image: grafana/grafana-oss
     labels:
       logging: "promtail"
       logging_jobname: "containerlogs"
