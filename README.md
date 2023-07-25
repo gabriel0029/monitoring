@@ -9,6 +9,20 @@ curl -fsSL https://get.docker.com/ | sh
 Obs: Instalará a versão mais recente.
 
 
+#### Dica importante
+Por padrão, o daemon do Docker faz bind em um socket Unix, e não em uma porta TCP. Sockets Unix, por sua vez, são de propriedade e de uso exclusivo do usuário root (por isso o Docker sempre é iniciado como root), mas também podem ser acessados através do sudo por outros usuários.
+
+Para evitar que você tenha que ficar usando sudo ao rodar comandos do Docker, crie um grupo chamado docker e adicione o seu usuário a ele. Pare o serviço e inicie-o novamente.
+
+Infelizmente, nem tudo são flores. Esse procedimento faz com que o usuário tenha os mesmos privilégios do usuário root em operações relacionadas ao Docker. Mais informações no link: https://docs.docker.com/engine/security/.
+
+Para criar um grupo no Linux e adicionar um usuário não tem segredo, basta rodar:
+```
+$ sudo usermod -aG docker user
+```
+Dica de um milhão de dólares: **user** = seu usuário.
+
+
 ## Docker Compose
 ### instalação 
 ```
@@ -29,7 +43,7 @@ Caso use o docker compose faça o download dos arquivos, eles se encontram logo 
 ```
 #docker-compose up -d   
 ```
-### Verificando os containers
+### Verificando os containers em execução
 - Listand os containers em execução.
 ```
 #docker container ls                       
@@ -68,9 +82,23 @@ http://seu_ip:3000
 admin  
 suporte
 
-- Obs. Para coletar os logs dos containers em execução acrescente os lables a seus containers
+Obs. Para coletar os logs dos containers em execução acrescente os lables.
 
 ```
 logging: "promtail" e 
 logging_jobname: "containerlogs"
+```
+### Exemplo
+
+docker run
+
+```
+docker run -d -p80:80 --name nginx --label logging=promtail --label logging_jobname=containerlogs nginx
+```
+Dentro .ymal na seção do container
+
+```
+    labels:
+      logging: "promtail"
+      logging_jobname: "containerlogs"
 ```
