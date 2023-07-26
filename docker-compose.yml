@@ -128,6 +128,7 @@ services:
     #restart: always
 
   loki:
+    container_name: loki
     image: grafana/loki:latest
     ports:
       - 3100:3100
@@ -138,8 +139,8 @@ services:
       - back-end
 
   promtail:
+    container_name: promtails
     image:  grafana/promtail:latest
-    container_name: promtail
     volumes:
       - ./promtail:/mnt/config
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
