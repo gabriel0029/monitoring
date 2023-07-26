@@ -14,13 +14,13 @@ Por padrão, o daemon do Docker faz bind em um socket Unix, e não em uma porta 
 
 Para evitar que você tenha que ficar usando sudo ao rodar comandos do Docker, crie um grupo chamado docker e adicione o seu usuário a ele. Pare o serviço e inicie-o novamente.
 
-Infelizmente, nem tudo são flores. Esse procedimento faz com que o usuário tenha os mesmos privilégios do usuário root em operações relacionadas ao Docker. Mais informações no link: https://docs.docker.com/engine/security/.
+Esse procedimento faz com que o usuário tenha os mesmos privilégios do usuário root em operações relacionadas ao Docker. Mais informações no link: https://docs.docker.com/engine/security/.
 
-Para criar um grupo no Linux e adicionar um usuário não tem segredo, basta rodar:
+Para criar um grupo no Linux e adicionar um usuário:
 ```
 $ sudo usermod -aG docker user
 ```
-Dica de um milhão de dólares: **user** = seu usuário.
+Dica de para pasar de ano: **user** = seu usuário.
 
 
 ## Docker Compose
