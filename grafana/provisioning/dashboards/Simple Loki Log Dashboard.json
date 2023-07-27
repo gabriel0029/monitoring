@@ -1,0 +1,144 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "Simple Loki Log Dashboard with docker",
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "gnetId": 18702,
+    "graphTooltip": 0,
+    "id": 9,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "loki",
+          "uid": "P8E80F9AEF21F6940"
+        },
+        "description": "",
+        "gridPos": {
+          "h": 20,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 5,
+        "options": {
+          "dedupStrategy": "none",
+          "enableLogDetails": false,
+          "prettifyLogMessage": true,
+          "showCommonLabels": false,
+          "showLabels": false,
+          "showTime": true,
+          "sortOrder": "Ascending",
+          "wrapLogMessage": true
+        },
+        "pluginVersion": "7.3.6",
+        "targets": [
+          {
+            "datasource": {
+              "type": "loki",
+              "uid": "P8E80F9AEF21F6940"
+            },
+            "editorMode": "code",
+            "expr": "{container=\"$container_name\"} |~ `(?i)$searchable_pattern`",
+            "legendFormat": "",
+            "queryType": "range",
+            "refId": "A"
+          }
+        ],
+        "title": "Logs Lines",
+        "type": "logs"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [
+      "loki"
+    ],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": true,
+            "text": "alertmanager",
+            "value": "alertmanager"
+          },
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "definition": "",
+          "hide": 0,
+          "includeAll": false,
+          "label": "Service",
+          "multi": false,
+          "name": "container_name",
+          "options": [],
+          "query": {
+            "label": "container",
+            "refId": "LokiVariableQueryEditor-VariableQuery",
+            "stream": "{container=~\".+\"}",
+            "type": 1
+          },
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        },
+        {
+          "current": {
+            "selected": false,
+            "text": "",
+            "value": ""
+          },
+          "description": "Search",
+          "hide": 0,
+          "label": "Search",
+          "name": "searchable_pattern",
+          "options": [
+            {
+              "selected": true,
+              "text": "",
+              "value": ""
+            }
+          ],
+          "query": "",
+          "skipUrlSync": false,
+          "type": "textbox"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-12h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Simple Loki Log Dashboard",
+    "uid": "slld-zuf-loki",
+    "version": 4,
+    "weekStart": ""
+  }
