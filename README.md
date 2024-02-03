@@ -20,7 +20,7 @@ Para criar um grupo no Linux e adicionar um usuário:
 ```
 $ sudo usermod -aG docker user
 ```
-Dica de para pasar de ano: **user** = seu usuário.
+Dica de para passar de ano: **user** = seu usuário.
 
 
 ## Docker Compose
