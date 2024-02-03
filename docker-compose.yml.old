@@ -144,12 +144,11 @@ services:
     ports:
       - 9080:9080
     volumes:
-      - "./promtail/promtail-config.yaml:/etc/promtail/config.yaml"
-      - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/var/log:/var/log"
-      - "tmp:/tmp"
-    command: '--config.file=/etc/promtail/config.yaml'
+      - ./promtail:/mnt/config
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/log:/var/log
+    command: '--config.file=/mnt/config/promtail-config.yaml'
     depends_on:
       - loki
     networks:
